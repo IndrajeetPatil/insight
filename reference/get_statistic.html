@@ -54,6 +54,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -81,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -100,7 +102,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -130,7 +132,7 @@
     <pre class="usage"><span class='fu'>get_statistic</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>get_statistic</span><span class='op'>(</span><span class='va'>x</span>, column_index <span class='op'>=</span> <span class='fl'>3</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>get_statistic</span><span class='op'>(</span><span class='va'>x</span>, column_index <span class='op'>=</span> <span class='fl'>3</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for glmmTMB</span>
 <span class='fu'>get_statistic</span><span class='op'>(</span>
@@ -182,6 +184,10 @@ method yet, the default method is called. This method tries to extract the
 statistic column from <code><a href='https://rdrr.io/r/stats/coef.html'>coef(summary())</a></code>, where the index of the column
 that is being pulled is <code>column_index</code>. Defaults to 3, which is the
 default statistic column for most models' summary-output.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Toggle messages and warnings.</p></td>
     </tr>
     <tr>
       <th>component</th>
@@ -240,7 +246,7 @@ errors is returned.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://github.com/IndrajeetPatil/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://sites.google.com/site/indrajeetspatilmorality/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">

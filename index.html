@@ -18,14 +18,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Easy Access to Model Information for Various Model Objects">
-<meta property="og:description" content="A tool to provide an easy, intuitive and consistent access to 
-   information contained in various R models, like model formulas, model terms, 
-   information about random effects, data that was used to fit the model or 
-   data from response variables. insight mainly revolves around two types 
-   of functions: Functions that find (the names of) information, starting with 
-   find_, and functions that get the underlying data, starting with get_. 
-   The package has a consistent syntax and works with many different model 
-   objects, where otherwise functions to access these information are missing.">
+<meta property="og:description" content="A tool to provide an easy, intuitive and consistent
+    access to information contained in various R models, like model
+    formulas, model terms, information about random effects, data that was
+    used to fit the model or data from response variables. insight
+    mainly revolves around two types of functions: Functions that find
+    (the names of) information, starting with find_, and functions that
+    get the underlying data, starting with get_.  The package has a
+    consistent syntax and works with many different model objects, where
+    otherwise functions to access these information are missing.">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -45,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -64,7 +65,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -88,10 +89,26 @@
 <p><strong>Gain insight into your models!</strong></p>
 <p>When fitting any statistical model, there are many useful pieces of information that are simultaneously calculated and stored beyond coefficient estimates and general model fit statistics. Although there exist some generic functions to obtain model information and data, many package-specific modeling functions do not provide such methods to allow users to access such valuable information.</p>
 <p><strong>insight</strong> is an R-package that fills this important gap by providing a suite of functions to support almost any model (see a list of the many models supported below in the <strong>List of Supported Packages and Models</strong> section). The goal of <strong>insight</strong>, then, is to provide tools to provide <em>easy</em>, <em>intuitive</em>, and <em>consistent</em> access to information contained in model objects. These tools aid applied research in virtually any field who fit, diagnose, and present statistical models by streamlining access to every aspect of many model objects via consistent syntax and output.</p>
-<p>Built with non-programmers in mind, <strong>insight</strong> offers a broad toolbox for making model and data information easily accessible. While <strong>insight</strong> offers many useful functions for working with and understanding model objects (discussed below), we suggest users start with <code><a href="reference/model_info.html">model_info()</a></code>, as this function provides a clean and consistent overview of model objects (e.g., functional form of the model, the model family, link function, number of observations, variables included in the specification, etc.). With a clear understanding of the model introduced, users are able to adapt other functions for more nuanced exploration of and interaction with virtually any model object.</p>
-<div id="definition-of-model-components" class="section level2">
+<div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#definition-of-model-components" class="anchor"></a>Definition of Model Components</h2>
+<a href="#installation" class="anchor"></a>Installation</h2>
+<p><a href="https://cran.r-project.org/package=insight"><img src="https://www.r-pkg.org/badges/version/insight" alt="CRAN_Status_Badge"></a> <a href="https://github.com/easystats/insight/actions"><img src="https://github.com/easystats/insight/workflows/R-check/badge.svg?branch=master" alt="R check"></a> <a href="https://codecov.io/gh/easystats/insight?branch=master"><img src="https://codecov.io/gh/easystats/insight/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></p>
+<p>Run the following to install the stable release of <strong>insight</strong> from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"insight"</span><span class="op">)</span></code></pre></div>
+<p>Or this one to install the latest development version:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"easystats/insight"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h2>
+<p><a href="https://easystats.github.io/insight/"><img src="https://img.shields.io/badge/documentation-insight-orange.svg?colorB=E91E63" alt="Documentation"></a> <a href="https://easystats.github.io/blog/posts/"><img src="https://img.shields.io/badge/blog-easystats-orange.svg?colorB=FF9800" alt="Blog"></a> <a href="https://easystats.github.io/insight/reference/index.html"><img src="https://img.shields.io/badge/features-insight-orange.svg?colorB=2196F3" alt="Features"></a></p>
+<p>Built with non-programmers in mind, <strong>insight</strong> offers a broad toolbox for making model and data information easily accessible. While <strong>insight</strong> offers many useful functions for working with and understanding model objects (discussed below), we suggest users start with <code><a href="reference/model_info.html">model_info()</a></code>, as this function provides a clean and consistent overview of model objects (e.g., functional form of the model, the model family, link function, number of observations, variables included in the specification, etc.). With a clear understanding of the model introduced, users are able to adapt other functions for more nuanced exploration of and interaction with virtually any model object.Please visit <a href="https://easystats.github.io/insight/" class="uri">https://easystats.github.io/insight/</a> for documentation.</p>
+<div id="definition-of-model-components" class="section level3">
+<h3 class="hasAnchor">
+<a href="#definition-of-model-components" class="anchor"></a>Definition of Model Components</h3>
 <p>The functions from <strong>insight</strong> address different components of a model. In an effort to avoid confusion about specific “targets” of each function, in this section we provide a short explanation of <strong>insight</strong>’s definitions of regression model components.</p>
 <div id="data" class="section level4">
 <h4 class="hasAnchor">
@@ -136,23 +153,23 @@
 <p>In some cases, yes. But not in all cases. Find out more by <a href="https://easystats.github.io/insight/articles/insight.html"><strong>clicking here to access the documentation</strong></a>.</p>
 </div>
 </div>
-<div id="functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#functions" class="anchor"></a>Functions</h2>
+<div id="functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#functions" class="anchor"></a>Functions</h3>
 <p>The package revolves around two key prefixes: <code>get_*</code> and <code>find_*</code>. The <code>get_*</code> prefix extracts <em>values</em> (or <em>data</em>) associated with model-specific objects (e.g., parameters or variables), while the <code>find_*</code> prefix <em>lists</em> model-specific objects (e.g., priors or predictors). These are powerful families of functions allowing for great flexibility in use, whether at a high, descriptive level (<code>find_*</code>) or narrower level of statistical inspection and reporting (<code>get_*</code>).</p>
 <p><img src="https://raw.githubusercontent.com/easystats/insight/master/paper/figure1_small.png"></p>
 <p>In total, the <strong>insight</strong> package includes 16 core functions: <a href="https://easystats.github.io/insight/reference/get_data.html">get_data()</a>, <a href="https://easystats.github.io/insight/reference/get_priors.html">get_priors()</a>, <a href="https://easystats.github.io/insight/reference/get_variance.html">get_variance()</a>, <a href="https://easystats.github.io/insight/reference/get_parameters.html">get_parameters()</a>, <a href="https://easystats.github.io/insight/reference/get_predictors.html">get_predictors()</a>, <a href="https://easystats.github.io/insight/reference/get_random.html">get_random()</a>, <a href="https://easystats.github.io/insight/reference/get_response.html">get_response()</a>, <a href="https://easystats.github.io/insight/reference/find_algorithm.html">find_algorithm()</a>, <a href="https://easystats.github.io/insight/reference/find_formula.html">find_formula()</a>, <a href="https://easystats.github.io/insight/reference/find_variables.html">find_variables()</a>, <a href="https://easystats.github.io/insight/reference/find_terms.html">find_terms()</a>, <a href="https://easystats.github.io/insight/reference/find_parameters.html">find_parameters()</a>, <a href="https://easystats.github.io/insight/reference/find_predictors.html">find_predictors()</a>, <a href="https://easystats.github.io/insight/reference/find_random.html">find_random()</a>, <a href="https://easystats.github.io/insight/reference/find_response.html">find_response()</a>, and <a href="https://easystats.github.io/insight/reference/model_info.html">model_info()</a>. In all cases, users must supply at a minimum, the name of the model fit object. In several functions, there are additional arguments that allow for more targeted returns of model information. For example, the <code><a href="reference/find_terms.html">find_terms()</a></code> function’s <code>effects</code> argument allows for the extraction of “fixed effects” terms, “random effects” terms, or by default, “all” terms in the model object. We point users to the package documentation or the complementary package website, <a href="https://easystats.github.io/insight/" class="uri">https://easystats.github.io/insight/</a>, for a detailed list of the arguments associated with each function as well as the returned values from each function.</p>
 </div>
-<div id="examples-of-use-cases-in-r" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples-of-use-cases-in-r" class="anchor"></a>Examples of Use Cases in R</h2>
+<div id="examples-of-use-cases-in-r" class="section level3">
+<h3 class="hasAnchor">
+<a href="#examples-of-use-cases-in-r" class="anchor"></a>Examples of Use Cases in R</h3>
 <p>We now would like to provide examples of use cases of the <strong>insight</strong> package. These examples probably do not cover typical real-world problems, but serve as illustration of the core idea of this package: The unified interface to access model information. <strong>insight</strong> should help both users and package developers in order to reduce the hassle with the many exceptions from various modelling packages when accessing model information.</p>
 <div id="making-predictions-at-specific-values-of-a-term-of-interest" class="section level4">
 <h4 class="hasAnchor">
 <a href="#making-predictions-at-specific-values-of-a-term-of-interest" class="anchor"></a>Making Predictions at Specific Values of a Term of Interest</h4>
 <p>Say, the goal is to make predictions for a certain term, holding remaining co-variates constant. This is achieved by calling <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> and feeding the <code>newdata</code>-argument with the values of the term of interest as well as the “constant” values for remaining co-variates. The functions <code><a href="reference/get_data.html">get_data()</a></code> and <code><a href="reference/find_predictors.html">find_predictors()</a></code> are used to get this information, which then can be used in the call to <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>.</p>
 <p>In this example, we fit a simple linear model, but it could be replaced by (m)any other models, so this approach is “universal” and applies to many different model objects.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/insight/">insight</a></span><span class="op">)</span>
 <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Sepal.Length</span> <span class="op">~</span> <span class="va">Species</span> <span class="op">+</span> <span class="va">Petal.Width</span> <span class="op">+</span> <span class="va">Sepal.Width</span>, data <span class="op">=</span> <span class="va">iris</span><span class="op">)</span>
 
@@ -178,7 +195,7 @@
 <a href="#printing-model-coefficients" class="anchor"></a>Printing Model Coefficients</h4>
 <p>The next example should emphasize the possibilities to generalize functions to many different model objects using <strong>insight</strong>. The aim is simply to print coefficients in a complete, human readable sentence.</p>
 <p>The first approach uses the functions that are available for some, but obviously not for all models, to access the information about model coefficients.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">print_params</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"My parameters are "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, 
         <span class="st">", thank you for your attention!"</span><span class="op">)</span>
@@ -193,7 +210,7 @@
 <span class="fu">print_params</span><span class="op">(</span><span class="va">m2</span><span class="op">)</span>
 <span class="co">#&gt; [1] "My parameters are , thank you for your attention!"</span></code></pre></div>
 <p>As we can see, the function fails for <em>gam</em>-models. As the access to models depends on the type of the model in the R ecosystem, we would need to create specific functions for all models types. With <strong>insight</strong>, users can write a function without having to worry about the model type.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">print_params</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"My parameters are "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu">insight</span><span class="fu">::</span><span class="fu"><a href="reference/find_parameters.html">find_parameters</a></span><span class="op">(</span><span class="va">model</span>, flatten <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, 
         collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span>, <span class="st">", thank you for your attention!"</span><span class="op">)</span>
@@ -208,21 +225,6 @@
 <span class="co">#&gt; [1] "My parameters are (Intercept), Petal.Width, s(Petal.Length), thank you for your attention!"</span></code></pre></div>
 </div>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>Run the following to install the latest GitHub-version of <strong>insight</strong>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"easystats/insight"</span><span class="op">)</span></code></pre></div>
-<p>Or install the latest stable release from CRAN:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"insight"</span><span class="op">)</span></code></pre></div>
-</div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
-<p>Please visit <a href="https://easystats.github.io/insight/" class="uri">https://easystats.github.io/insight/</a> for documentation.</p>
 </div>
 <div id="contributing-and-support" class="section level2">
 <h2 class="hasAnchor">
@@ -232,59 +234,66 @@
 <div id="list-of-supported-models-by-class" class="section level2">
 <h2 class="hasAnchor">
 <a href="#list-of-supported-models-by-class" class="anchor"></a>List of Supported Models by Class</h2>
+<p>Currently, 171 model classes are supported.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/is_model_supported.html">supported_models</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;   [1] "aareg"             "afex_aov"          "aov"              </span>
-<span class="co">#&gt;   [4] "aovlist"           "Arima"             "averaging"        </span>
-<span class="co">#&gt;   [7] "bamlss"            "bamlss.frame"      "bayesQR"          </span>
-<span class="co">#&gt;  [10] "bayesx"            "BBmm"              "BBreg"            </span>
-<span class="co">#&gt;  [13] "bcplm"             "betamfx"           "betaor"           </span>
-<span class="co">#&gt;  [16] "betareg"           "BFBayesFactor"     "BGGM"             </span>
-<span class="co">#&gt;  [19] "bife"              "bigglm"            "biglm"            </span>
-<span class="co">#&gt;  [22] "blavaan"           "blrm"              "bracl"            </span>
-<span class="co">#&gt;  [25] "brglm"             "brmsfit"           "brmultinom"       </span>
-<span class="co">#&gt;  [28] "censReg"           "cgam"              "cgamm"            </span>
-<span class="co">#&gt;  [31] "cglm"              "clm"               "clm2"             </span>
-<span class="co">#&gt;  [34] "clmm"              "clmm2"             "clogit"           </span>
-<span class="co">#&gt;  [37] "complmrob"         "coxme"             "coxph"            </span>
-<span class="co">#&gt;  [40] "coxph.penal"       "cpglm"             "cpglmm"           </span>
-<span class="co">#&gt;  [43] "crch"              "crq"               "crqs"             </span>
-<span class="co">#&gt;  [46] "DirichletRegModel" "feglm"             "feis"             </span>
-<span class="co">#&gt;  [49] "felm"              "fixest"            "flexsurvreg"      </span>
-<span class="co">#&gt;  [52] "gam"               "Gam"               "gamlss"           </span>
-<span class="co">#&gt;  [55] "gamm"              "gamm4"             "gbm"              </span>
-<span class="co">#&gt;  [58] "gee"               "geeglm"            "glht"             </span>
-<span class="co">#&gt;  [61] "glimML"            "glm"               "Glm"              </span>
-<span class="co">#&gt;  [64] "glmm"              "glmmadmb"          "glmmPQL"          </span>
-<span class="co">#&gt;  [67] "glmmTMB"           "glmrob"            "glmRob"           </span>
-<span class="co">#&gt;  [70] "glmx"              "gls"               "gmnl"             </span>
-<span class="co">#&gt;  [73] "HLfit"             "htest"             "hurdle"           </span>
-<span class="co">#&gt;  [76] "iv_robust"         "ivreg"             "lavaan"           </span>
-<span class="co">#&gt;  [79] "lm"                "lm_robust"         "lme"              </span>
-<span class="co">#&gt;  [82] "lmerMod"           "lmerModLmerTest"   "lmrob"            </span>
-<span class="co">#&gt;  [85] "lmRob"             "logistf"           "logitmfx"         </span>
-<span class="co">#&gt;  [88] "logitor"           "LORgee"            "lqm"              </span>
-<span class="co">#&gt;  [91] "lqmm"              "lrm"               "manova"           </span>
-<span class="co">#&gt;  [94] "MANOVA"            "margins"           "maxLik"           </span>
-<span class="co">#&gt;  [97] "mclogit"           "mcmc"              "MCMCglmm"         </span>
-<span class="co">#&gt; [100] "merMod"            "merModList"        "meta_bma"         </span>
-<span class="co">#&gt; [103] "meta_fixed"        "meta_random"       "metaplus"         </span>
-<span class="co">#&gt; [106] "mipo"              "mira"              "mixed"            </span>
-<span class="co">#&gt; [109] "MixMod"            "mixor"             "mle"              </span>
-<span class="co">#&gt; [112] "mle2"              "mlm"               "mlogit"           </span>
-<span class="co">#&gt; [115] "mmlogit"           "multinom"          "negbinirr"        </span>
-<span class="co">#&gt; [118] "negbinmfx"         "ols"               "plm"              </span>
-<span class="co">#&gt; [121] "poissonirr"        "poissonmfx"        "polr"             </span>
-<span class="co">#&gt; [124] "probitmfx"         "psm"               "rlm"              </span>
-<span class="co">#&gt; [127] "rlmerMod"          "RM"                "rma"              </span>
-<span class="co">#&gt; [130] "rma.uni"           "robmixglm"         "rq"               </span>
-<span class="co">#&gt; [133] "rqss"              "scam"              "sem"              </span>
-<span class="co">#&gt; [136] "speedglm"          "speedlm"           "stanmvreg"        </span>
-<span class="co">#&gt; [139] "stanreg"           "survfit"           "survreg"          </span>
-<span class="co">#&gt; [142] "svyglm"            "svyolr"            "tobit"            </span>
-<span class="co">#&gt; [145] "truncreg"          "vgam"              "vglm"             </span>
-<span class="co">#&gt; [148] "wbgee"             "wblm"              "wbm"              </span>
-<span class="co">#&gt; [151] "zcpglm"            "zeroinfl"          "zerotrunc"</span></code></pre></div>
+<span class="co">#&gt;   [1] "aareg"             "afex_aov"          "Anova.mlm"        </span>
+<span class="co">#&gt;   [4] "aov"               "aovlist"           "Arima"            </span>
+<span class="co">#&gt;   [7] "averaging"         "bamlss"            "bamlss.frame"     </span>
+<span class="co">#&gt;  [10] "bayesQR"           "bayesx"            "BBmm"             </span>
+<span class="co">#&gt;  [13] "BBreg"             "bcplm"             "betamfx"          </span>
+<span class="co">#&gt;  [16] "betaor"            "betareg"           "BFBayesFactor"    </span>
+<span class="co">#&gt;  [19] "BGGM"              "bife"              "bigglm"           </span>
+<span class="co">#&gt;  [22] "biglm"             "blavaan"           "blrm"             </span>
+<span class="co">#&gt;  [25] "bracl"             "brglm"             "brmsfit"          </span>
+<span class="co">#&gt;  [28] "brmultinom"        "btergm"            "censReg"          </span>
+<span class="co">#&gt;  [31] "cgam"              "cgamm"             "cglm"             </span>
+<span class="co">#&gt;  [34] "clm"               "clm2"              "clmm"             </span>
+<span class="co">#&gt;  [37] "clmm2"             "clogit"            "coeftest"         </span>
+<span class="co">#&gt;  [40] "complmrob"         "coxme"             "coxph"            </span>
+<span class="co">#&gt;  [43] "coxph.penal"       "coxr"              "cpglm"            </span>
+<span class="co">#&gt;  [46] "cpglmm"            "crch"              "crq"              </span>
+<span class="co">#&gt;  [49] "crqs"              "crr"               "DirichletRegModel"</span>
+<span class="co">#&gt;  [52] "ergm"              "feglm"             "feis"             </span>
+<span class="co">#&gt;  [55] "felm"              "fitdistr"          "fixest"           </span>
+<span class="co">#&gt;  [58] "flexsurvreg"       "gam"               "Gam"              </span>
+<span class="co">#&gt;  [61] "gamlss"            "gamm"              "gamm4"            </span>
+<span class="co">#&gt;  [64] "garch"             "gbm"               "gee"              </span>
+<span class="co">#&gt;  [67] "geeglm"            "glht"              "glimML"           </span>
+<span class="co">#&gt;  [70] "glm"               "Glm"               "glmm"             </span>
+<span class="co">#&gt;  [73] "glmmadmb"          "glmmPQL"           "glmmTMB"          </span>
+<span class="co">#&gt;  [76] "glmrob"            "glmRob"            "glmx"             </span>
+<span class="co">#&gt;  [79] "gls"               "gmnl"              "HLfit"            </span>
+<span class="co">#&gt;  [82] "htest"             "hurdle"            "iv_robust"        </span>
+<span class="co">#&gt;  [85] "ivFixed"           "ivprobit"          "ivreg"            </span>
+<span class="co">#&gt;  [88] "lavaan"            "lm"                "lm_robust"        </span>
+<span class="co">#&gt;  [91] "lme"               "lmerMod"           "lmerModLmerTest"  </span>
+<span class="co">#&gt;  [94] "lmodel2"           "lmrob"             "lmRob"            </span>
+<span class="co">#&gt;  [97] "logistf"           "logitmfx"          "logitor"          </span>
+<span class="co">#&gt; [100] "LORgee"            "lqm"               "lqmm"             </span>
+<span class="co">#&gt; [103] "lrm"               "manova"            "MANOVA"           </span>
+<span class="co">#&gt; [106] "margins"           "maxLik"            "mclogit"          </span>
+<span class="co">#&gt; [109] "mcmc"              "mcmc.list"         "MCMCglmm"         </span>
+<span class="co">#&gt; [112] "mediate"           "merMod"            "merModList"       </span>
+<span class="co">#&gt; [115] "meta_bma"          "meta_fixed"        "meta_random"      </span>
+<span class="co">#&gt; [118] "metaplus"          "mipo"              "mira"             </span>
+<span class="co">#&gt; [121] "mixed"             "MixMod"            "mixor"            </span>
+<span class="co">#&gt; [124] "mle"               "mle2"              "mlm"              </span>
+<span class="co">#&gt; [127] "mlogit"            "mmlogit"           "multinom"         </span>
+<span class="co">#&gt; [130] "negbinirr"         "negbinmfx"         "ols"              </span>
+<span class="co">#&gt; [133] "plm"               "poissonirr"        "poissonmfx"       </span>
+<span class="co">#&gt; [136] "polr"              "probitmfx"         "psm"              </span>
+<span class="co">#&gt; [139] "Rchoice"           "ridgelm"           "riskRegression"   </span>
+<span class="co">#&gt; [142] "rlm"               "rlmerMod"          "RM"               </span>
+<span class="co">#&gt; [145] "rma"               "rma.uni"           "robmixglm"        </span>
+<span class="co">#&gt; [148] "rq"                "rqs"               "rqss"             </span>
+<span class="co">#&gt; [151] "scam"              "sem"               "speedglm"         </span>
+<span class="co">#&gt; [154] "speedlm"           "stanmvreg"         "stanreg"          </span>
+<span class="co">#&gt; [157] "summary.lm"        "survfit"           "survreg"          </span>
+<span class="co">#&gt; [160] "svyglm"            "svyolr"            "tobit"            </span>
+<span class="co">#&gt; [163] "truncreg"          "vgam"              "vglm"             </span>
+<span class="co">#&gt; [166] "wbgee"             "wblm"              "wbm"              </span>
+<span class="co">#&gt; [169] "zcpglm"            "zeroinfl"          "zerotrunc"</span></code></pre></div>
 <ul>
 <li>
 <strong>Didn’t find a model?</strong> <a href="https://github.com/easystats/insight/issues">File an issue</a> and request additional model-support in <em>insight</em>!</li>
@@ -334,11 +343,14 @@
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://github.com/strengejacke/">Daniel Lüdecke</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8895-3206" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://github.com/strengejacke/">Daniel Lüdecke</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8895-3206" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> <br><small>(@strengejacke)</small>
+</li>
 <li>
-<a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0001-5375-9967" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0001-5375-9967" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> <br><small>(@Dom_Makowski)</small>
+</li>
 <li>
-<a href="https://github.com/IndrajeetPatil/">Indrajeet Patil</a> <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0003-1995-6531" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://sites.google.com/site/indrajeetspatilmorality/">Indrajeet Patil</a> <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0003-1995-6531" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> <br><small>(@patilindrajeets)</small>
+</li>
 <li>Philip Waggoner <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0002-7825-7573" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>
 <a href="https://sites.google.com/view/mattansb/">Mattan S. Ben-Shachar</a> <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0002-4287-4801" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
@@ -348,9 +360,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://doi.org/10.21105/joss.01412"><img src="http://joss.theoj.org/papers/10.21105/joss.01412/status.svg" alt="DOI"></a></li>
-<li><a href="https://cran.r-project.org/package=insight"><img src="https://www.r-pkg.org/badges/version/insight" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://easystats.github.io/insight/"><img src="https://img.shields.io/badge/documentation-insight-orange.svg?colorB=E91E63" alt="Documentation"></a></li>
+<li><a href="https://doi.org/10.21105/joss.01412"><img src="https://joss.theoj.org/papers/10.21105/joss.01412/status.svg" alt="DOI"></a></li>
 <li><a href="https://cranlogs.r-pkg.org/"><img src="https://cranlogs.r-pkg.org/badges/insight" alt="downloads"></a></li>
 <li><a href="https://cranlogs.r-pkg.org/"><img src="https://cranlogs.r-pkg.org/badges/grand-total/insight" alt="total"></a></li>
 </ul>
@@ -360,7 +370,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/strengejacke/">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a>, <a href="https://github.com/IndrajeetPatil/">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/">Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href="https://github.com/strengejacke/">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/">Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">

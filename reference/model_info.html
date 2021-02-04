@@ -53,6 +53,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -80,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -99,7 +101,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -183,6 +185,15 @@
 <li><p><code>is_trial</code>: model response contains additional information about the trials</p></li>
 <li><p><code>is_bayesian</code>: model is a Bayesian model</p></li>
 <li><p><code>is_anova</code>: model is an Anova object</p></li>
+<li><p><code>is_ttest</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/t.test.html'>t.test()</a></code></p></li>
+<li><p><code>is_correlation</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test()</a></code></p></li>
+<li><p><code>is_ranktest</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/cor.test.html'>cor.test()</a></code> (if Spearman's rank correlation), <code>wilcox.text()</code> or <code><a href='https://rdrr.io/r/stats/kruskal.test.html'>kruskal.test()</a></code>.</p></li>
+<li><p><code>is_levenetest</code>: model is an an object of class <code>anova</code>, returned by <code><a href='https://rdrr.io/pkg/car/man/leveneTest.html'>car::leveneTest()</a></code>.</p></li>
+<li><p><code>is_onewaytest</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/oneway.test.html'>oneway.test()</a></code></p></li>
+<li><p><code>is_proptest</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/prop.test.html'>prop.test()</a></code></p></li>
+<li><p><code>is_binomtest</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/binom.test.html'>binom.test()</a></code></p></li>
+<li><p><code>is_chi2test</code>: model is an an object of class <code>htest</code>, returned by <code><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test()</a></code></p></li>
+<li><p><code>is_xtab</code>: model is an an object of class <code>htest</code> or <code>BFBayesFactor</code>, and test-statistic stems from a contingency table (i.e. <code><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test()</a></code> or <code><a href='https://rdrr.io/pkg/BayesFactor/man/contingencyTableBF.html'>BayesFactor::contingencyTableBF()</a></code>).</p></li>
 <li><p><code>link_function</code>: the link-function</p></li>
 <li><p><code>family</code>: the family-object</p></li>
 <li><p><code>n_obs</code>: number of observations</p></li>
@@ -290,6 +301,27 @@
 #&gt; [1] FALSE
 #&gt; 
 #&gt; $is_correlation
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_onewaytest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_chi2test
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_ranktest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_levenetest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_xtab
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_proptest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_binomtest
 #&gt; [1] FALSE
 #&gt; 
 #&gt; $is_meta
@@ -417,6 +449,27 @@
 #&gt; $is_correlation
 #&gt; [1] FALSE
 #&gt; 
+#&gt; $is_onewaytest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_chi2test
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_ranktest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_levenetest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_xtab
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_proptest
+#&gt; [1] FALSE
+#&gt; 
+#&gt; $is_binomtest
+#&gt; [1] FALSE
+#&gt; 
 #&gt; $is_meta
 #&gt; [1] FALSE
 #&gt; 
@@ -448,7 +501,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://github.com/IndrajeetPatil/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://sites.google.com/site/indrajeetspatilmorality/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">

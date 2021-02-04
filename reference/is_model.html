@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checks if an object is a regression model object — is_model • insight</title>
+<title>Checks if an object is a regression model or statistical test object — is_model • insight</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,14 @@
 
 
 
-<meta property="og:title" content="Checks if an object is a regression model object — is_model" />
-<meta property="og:description" content="Small helper that checks if a model is a regression model
-  object." />
+<meta property="og:title" content="Checks if an object is a regression model or statistical test object — is_model" />
+<meta property="og:description" content="Small helper that checks if a model is a regression model or
+  a statistical object. is_regression_model() is stricter and only
+  returns TRUE for regression models, but not for, e.g., htest
+  objects." />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -81,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -100,7 +104,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,17 +121,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Checks if an object is a regression model object</h1>
+    <h1>Checks if an object is a regression model or statistical test object</h1>
     <small class="dont-index">Source: <a href='https://github.com/easystats/insight/blob/master/R/is_model.R'><code>R/is_model.R</code></a></small>
     <div class="hidden name"><code>is_model.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Small helper that checks if a model is a regression model
-  object.</p>
+    <p>Small helper that checks if a model is a regression model or
+  a statistical object. <code>is_regression_model()</code> is stricter and only
+  returns <code>TRUE</code> for regression models, but not for, e.g., <code>htest</code>
+  objects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is_model</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_model</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
+<span class='fu'>is_regression_model</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,6 +159,10 @@
 
 <span class='fu'>is_model</span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_model</span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+<span class='va'>test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/t.test.html'>t.test</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>7</span><span class='op'>:</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>is_model</span><span class='op'>(</span><span class='va'>test</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_regression_model</span><span class='op'>(</span><span class='va'>test</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -163,7 +175,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://github.com/IndrajeetPatil/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://sites.google.com/site/indrajeetspatilmorality/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">

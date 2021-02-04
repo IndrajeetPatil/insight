@@ -52,6 +52,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -79,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -98,7 +100,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -190,6 +192,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="find_smooth.html">find_smooth()</a></code> </p>
+        </td>
+        <td><p>Find smooth terms from a model object</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="find_terms.html">find_terms()</a></code> </p>
         </td>
         <td><p>Find all model terms</p></td>
@@ -215,15 +223,51 @@
       <tr>
         
         <td>
+          <p><code><a href="get_auxiliary.html">get_auxiliary()</a></code> </p>
+        </td>
+        <td><p>Get auxiliary parameters from models</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="get_data.html">get_data()</a></code> </p>
         </td>
         <td><p>Get the data that was used to fit the model</p></td>
       </tr><tr>
         
         <td>
+          <p><code><a href="get_df.html">get_df()</a></code> </p>
+        </td>
+        <td><p>Extract degrees of freedom</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_intercept.html">get_intercept()</a></code> </p>
+        </td>
+        <td><p>Get the value at the intercept</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_loglikelihood.html">get_loglikelihood()</a></code> <code><a href="get_loglikelihood.html">loglikelihood()</a></code> </p>
+        </td>
+        <td><p>Log-Likelihood</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_predicted.html">get_predicted()</a></code> </p>
+        </td>
+        <td><p>Predicted values</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="get_priors.html">get_priors()</a></code> </p>
         </td>
         <td><p>Get summary of priors used for a model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_residuals.html">get_residuals()</a></code> </p>
+        </td>
+        <td><p>Extract model residuals</p></td>
       </tr><tr>
         
         <td>
@@ -242,6 +286,12 @@
           <p><code><a href="get_varcov.html">get_varcov()</a></code> </p>
         </td>
         <td><p>Get variance-covariance matrix from models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_deviance.html">get_deviance()</a></code> </p>
+        </td>
+        <td><p>Model Deviance</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -343,6 +393,12 @@
       <tr>
         
         <td>
+          <p><code><a href="get_call.html">get_call()</a></code> </p>
+        </td>
+        <td><p>Get the model's function call</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="link_function.html">link_function()</a></code> </p>
         </td>
         <td><p>Get link-function from model object</p></td>
@@ -355,9 +411,21 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="model_name.html">model_name()</a></code> </p>
+        </td>
+        <td><p>Name the model</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="n_obs.html">n_obs()</a></code> </p>
         </td>
         <td><p>Get number of observations from a model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="n_parameters.html">n_parameters()</a></code> </p>
+        </td>
+        <td><p>Count number of parameters in a model</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -386,9 +454,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="is_model.html">is_model()</a></code> </p>
+          <p><code><a href="is_mixed_model.html">is_mixed_model()</a></code> </p>
         </td>
-        <td><p>Checks if an object is a regression model object</p></td>
+        <td><p>Checks if a model is a mixed effects model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="is_model.html">is_model()</a></code> <code><a href="is_model.html">is_regression_model()</a></code> </p>
+        </td>
+        <td><p>Checks if an object is a regression model or statistical test object</p></td>
       </tr><tr>
         
         <td>
@@ -402,6 +476,12 @@
           <p><code><a href="is_multivariate.html">is_multivariate()</a></code> </p>
         </td>
         <td><p>Checks if an object stems from a multivariate response model</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="is_nested_models.html">is_nested_models()</a></code> </p>
+        </td>
+        <td><p>Checks whether a list of models are nested models</p></td>
       </tr><tr>
         
         <td>
@@ -466,15 +546,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="format_table.html">format_table()</a></code> </p>
-        </td>
-        <td><p>Dataframe and Tables Pretty Formatting</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="format_value.html">format_value()</a></code> </p>
         </td>
         <td><p>Numeric Values Formatting</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="format_table.html">format_table()</a></code> <code><a href="format_table.html">parameters_table()</a></code> </p>
+        </td>
+        <td><p>Parameter table formatting</p></td>
       </tr><tr>
         
         <td>
@@ -509,9 +589,27 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="display.html">display()</a></code> <code><a href="display.html">print_md()</a></code> <code><a href="display.html">print_html()</a></code> </p>
+        </td>
+        <td><p>Generic export of data frames into formatted tables</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="download_model.html">download_model()</a></code> </p>
         </td>
         <td><p>Download circus models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ellipsis_info.html">ellipsis_info()</a></code> </p>
+        </td>
+        <td><p>Gather information about objects in ellipsis (dot dot dot)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="export_table.html">export_table()</a></code> </p>
+        </td>
+        <td><p>Data frame and Tables Pretty Formatting</p></td>
       </tr><tr>
         
         <td>
@@ -550,6 +648,97 @@
         </td>
         <td><p>Sample data set</p></td>
       </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-documentation-of-specific-class-objects" class="hasAnchor"><a href="#section-documentation-of-specific-class-objects" class="anchor"></a>Documentation of Specific Class Objects</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;BGGM&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;BFBayesFactor&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;MCMCglmm&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;bamlss&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;brmsfit&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;bayesx&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;stanreg&gt;</i>)</a></code> <code><a href="find_parameters.BGGM.html">find_parameters(<i>&lt;sim.merMod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find names of model parameters from Bayesian models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="find_parameters.gamlss.html">find_parameters(<i>&lt;gamlss&gt;</i>)</a></code> <code><a href="find_parameters.gamlss.html">find_parameters(<i>&lt;gam&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find names of model parameters from generalized additive models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="find_parameters.betamfx.html">find_parameters(<i>&lt;betamfx&gt;</i>)</a></code> <code><a href="find_parameters.betamfx.html">find_parameters(<i>&lt;logitmfx&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find names of model parameters from marginal effects models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="find_parameters.glmmTMB.html">find_parameters(<i>&lt;glmmTMB&gt;</i>)</a></code> <code><a href="find_parameters.glmmTMB.html">find_parameters(<i>&lt;merMod&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find names of model parameters from mixed models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="find_parameters.zeroinfl.html">find_parameters(<i>&lt;zeroinfl&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find names of model parameters from zero-inflated models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="find_parameters.averaging.html">find_parameters(<i>&lt;averaging&gt;</i>)</a></code> <code><a href="find_parameters.averaging.html">find_parameters(<i>&lt;betareg&gt;</i>)</a></code> <code><a href="find_parameters.averaging.html">find_parameters(<i>&lt;DirichletRegModel&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Find model parameters from models with special components</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;BGGM&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;MCMCglmm&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;BFBayesFactor&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;stanmvreg&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;brmsfit&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;stanreg&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;bayesx&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;bamlss&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;sim.merMod&gt;</i>)</a></code> <code><a href="get_parameters.BGGM.html">get_parameters(<i>&lt;sim&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from Bayesian models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.emmGrid.html">get_parameters(<i>&lt;emmGrid&gt;</i>)</a></code> <code><a href="get_parameters.emmGrid.html">get_parameters(<i>&lt;emm_list&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from estimated marginal means objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.gamm.html">get_parameters(<i>&lt;gamm&gt;</i>)</a></code> <code><a href="get_parameters.gamm.html">get_parameters(<i>&lt;gam&gt;</i>)</a></code> <code><a href="get_parameters.gamm.html">get_parameters(<i>&lt;rqss&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from generalized additive models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.betamfx.html">get_parameters(<i>&lt;betamfx&gt;</i>)</a></code> <code><a href="get_parameters.betamfx.html">get_parameters(<i>&lt;logitmfx&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from marginal effects models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.glmm.html">get_parameters(<i>&lt;glmm&gt;</i>)</a></code> <code><a href="get_parameters.glmm.html">get_parameters(<i>&lt;coxme&gt;</i>)</a></code> <code><a href="get_parameters.glmm.html">get_parameters(<i>&lt;merMod&gt;</i>)</a></code> <code><a href="get_parameters.glmm.html">get_parameters(<i>&lt;glmmTMB&gt;</i>)</a></code> <code><a href="get_parameters.glmm.html">get_parameters(<i>&lt;glimML&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from mixed models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.zeroinfl.html">get_parameters(<i>&lt;zeroinfl&gt;</i>)</a></code> <code><a href="get_parameters.zeroinfl.html">get_parameters(<i>&lt;zcpglm&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from zero-inflated and hurdle models</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_parameters.betareg.html">get_parameters(<i>&lt;betareg&gt;</i>)</a></code> <code><a href="get_parameters.betareg.html">get_parameters(<i>&lt;DirichletRegModel&gt;</i>)</a></code> <code><a href="get_parameters.betareg.html">get_parameters(<i>&lt;averaging&gt;</i>)</a></code> <code><a href="get_parameters.betareg.html">get_parameters(<i>&lt;glmx&gt;</i>)</a></code> <code><a href="get_parameters.betareg.html">get_parameters(<i>&lt;clm2&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Get model parameters from models with special components</p></td>
+      </tr>
     </tbody>
     </table>
   </div>
@@ -564,7 +753,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://github.com/IndrajeetPatil/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://sites.google.com/site/indrajeetspatilmorality/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">

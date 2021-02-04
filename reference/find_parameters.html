@@ -50,8 +50,18 @@
 <meta property="og:description" content="Returns the names of model parameters, like they typically
     appear in the summary() output. For Bayesian models, the parameter
     names equal the column names of the posterior samples after coercion
-    from as.data.frame()." />
+    from as.data.frame(). See the documentation for your object's class:
+Bayesian models (rstanarm, brms, MCMCglmm, ...)
+Generalized additive models (mgcv, VGAM, ...)
+Marginal effects models (mfx)
+Mixed models (lme4, glmmTMB, GLMMadaptive, ...)
+Zero-inflated and hurdle models (pscl, ...)
+Models with special components (betareg, MuMIn, ...)
+
+" />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -83,7 +93,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.12.0.1</span>
       </span>
     </div>
 
@@ -102,7 +112,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/easystats/insight/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -128,104 +138,21 @@
     <p>Returns the names of model parameters, like they typically
     appear in the <code><a href='https://rdrr.io/r/base/summary.html'>summary()</a></code> output. For Bayesian models, the parameter
     names equal the column names of the posterior samples after coercion
-    from <code><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame()</a></code>.</p>
+    from <code><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame()</a></code>. See the documentation for your object's class:</p><ul>
+<li><p><a href='find_parameters.BGGM.html'>Bayesian models</a> (<span class="pkg">rstanarm</span>, <span class="pkg">brms</span>, <span class="pkg">MCMCglmm</span>, ...)</p></li>
+<li><p><a href='find_parameters.gamlss.html'>Generalized additive models</a> (<span class="pkg">mgcv</span>, <span class="pkg">VGAM</span>, ...)</p></li>
+<li><p><a href='find_parameters.betamfx.html'>Marginal effects models</a> (<span class="pkg">mfx</span>)</p></li>
+<li><p><a href='find_parameters.glmmTMB.html'>Mixed models</a> (<span class="pkg">lme4</span>, <span class="pkg">glmmTMB</span>, <span class="pkg">GLMMadaptive</span>, ...)</p></li>
+<li><p><a href='find_parameters.zeroinfl.html'>Zero-inflated and hurdle models</a> (<span class="pkg">pscl</span>, ...)</p></li>
+<li><p><a href='find_parameters.averaging.html'>Models with special components</a> (<span class="pkg">betareg</span>, <span class="pkg">MuMIn</span>, ...)</p></li>
+</ul>
+
     </div>
 
     <pre class="usage"><span class='fu'>find_parameters</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='co'># S3 method for betamfx</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"precision"</span>, <span class='st'>"marginal"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for logitmfx</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"marginal"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for gam</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"smooth_terms"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for merMod</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span><span class='va'>x</span>, effects <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"fixed"</span>, <span class='st'>"random"</span><span class='op'>)</span>, flatten <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='co'># S3 method for zeroinfl</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"zi"</span>, <span class='st'>"zero_inflated"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for BGGM</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"correlation"</span>, <span class='st'>"conditional"</span>, <span class='st'>"intercept"</span>, <span class='st'>"all"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for BFBayesFactor</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  effects <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"fixed"</span>, <span class='st'>"random"</span><span class='op'>)</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"extra"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for brmsfit</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  effects <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"fixed"</span>, <span class='st'>"random"</span><span class='op'>)</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"zi"</span>, <span class='st'>"zero_inflated"</span>, <span class='st'>"dispersion"</span>, <span class='st'>"simplex"</span>,
-    <span class='st'>"sigma"</span>, <span class='st'>"smooth_terms"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  parameters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for bayesx</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"smooth_terms"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  parameters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for stanreg</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  effects <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"fixed"</span>, <span class='st'>"random"</span><span class='op'>)</span>,
-  component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"conditional"</span>, <span class='st'>"smooth_terms"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  parameters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for sim.merMod</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  effects <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"fixed"</span>, <span class='st'>"random"</span><span class='op'>)</span>,
-  flatten <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  parameters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for averaging</span>
-<span class='fu'>find_parameters</span><span class='op'>(</span><span class='va'>x</span>, component <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"conditional"</span>, <span class='st'>"full"</span><span class='op'>)</span>, flatten <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='co'># S3 method for default</span>
+<span class='fu'>find_parameters</span><span class='op'>(</span><span class='va'>x</span>, flatten <span class='op'>=</span> <span class='cn'>FALSE</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -239,54 +166,20 @@
       <td><p>Currently not used.</p></td>
     </tr>
     <tr>
-      <th>component</th>
-      <td><p>Should all parameters, parameters for the
- conditional model, the zero-inflated part of the model, the dispersion
- term, the instrumental variables or marginal effects be returned? Applies
- to models with zero-inflated and/or dispersion formula, or to models with
- instrumental variables (so called fixed-effects regressions), or models
- with marginal effects from <span class="pkg">mfx</span>. May be abbreviated. Note that the
-<em>conditional</em> component is also called <em>count</em> or <em>mean</em>
-component, depending on the model.</p></td>
-    </tr>
-    <tr>
       <th>flatten</th>
       <td><p>Logical, if <code>TRUE</code>, the values are returned
 as character vector, not as list. Duplicated values are removed.</p></td>
     </tr>
     <tr>
-      <th>effects</th>
-      <td><p>Should parameters for fixed effects, random effects
-or both be returned? Only applies to mixed models. May be abbreviated.</p></td>
-    </tr>
-    <tr>
-      <th>parameters</th>
-      <td><p>Regular expression pattern that describes the parameters that
-should be returned.</p></td>
+      <th>verbose</th>
+      <td><p>Toggle messages and warnings.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of parameter names. For simple models, only one list-element,
-   <code>conditional</code>, is returned. For more complex models, the returned
-   list may have following elements:</p><ul>
-<li><p><code>conditional</code>, the "fixed effects" part from the model</p></li>
-<li><p><code>random</code>, the "random effects" part from the model</p></li>
-<li><p><code>zero_inflated</code>, the "fixed effects" part from the zero-inflation component of the model</p></li>
-<li><p><code>zero_inflated_random</code>, the "random effects" part from the zero-inflation component of the model</p></li>
-<li><p><code>dispersion</code>, the dispersion parameters</p></li>
-<li><p><code>simplex</code>, simplex parameters of monotonic effects (<span class="pkg">brms</span> only)</p></li>
-<li><p><code>smooth_terms</code>, the smooth parameters</p></li>
-<li><p><code>marginal</code>, the marginal effects (for models from <span class="pkg">mfx</span>)</p></li>
-</ul>
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>In most cases when models either return different "effects" (fixed,
-random) or "components" (conditional, zero-inflated, ...), the arguments
-<code>effects</code> and <code>component</code> can be used. Not all model classes that
-support these arguments are listed here in the 'Usage' section.</p>
+   <code>conditional</code>, is returned.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
@@ -306,7 +199,7 @@ support these arguments are listed here in the 'Usage' section.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://github.com/IndrajeetPatil/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
+  <p>Developed by <a href='https://github.com/strengejacke/'>Daniel Lüdecke</a>, <a href='https://dominiquemakowski.github.io/'>Dominique Makowski</a>, <a href='https://sites.google.com/site/indrajeetspatilmorality/'>Indrajeet Patil</a>, Philip Waggoner, <a href='https://sites.google.com/view/mattansb/'>Mattan S. Ben-Shachar</a>.</p>
 </div>
 
 <div class="pkgdown">
