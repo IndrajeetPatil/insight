@@ -147,7 +147,7 @@
 <h2 class="hasAnchor">
 <a href="#general" class="anchor"></a>General</h2>
 <ul>
-<li><p><code><a href="../reference/get_predicted.html">get_predicted()</a></code> has be revamped with a new API and a stable output form (a vector).</p></li>
+<li><p><code><a href="../reference/get_predicted.html">get_predicted()</a></code> has be revamped with a new API and a stable output form (a vector). In the course of this revision, a new function <code><a href="../reference/get_predicted_ci.html">get_predicted_ci()</a></code> to calculate uncertainty intervals for model predictions.</p></li>
 <li><p>Improved support for <code>orm</code> (<em>rms</em>).</p></li>
 </ul>
 </div>
@@ -155,7 +155,7 @@
 <h2 class="hasAnchor">
 <a href="#new-supported-model-classes" class="anchor"></a>New supported model classes</h2>
 <ul>
-<li>Support for <code>svy_vglm</code> (<em>svyVGAM</em>), <code>mjoint</code> (<em>joineRML</em>), <code>mhurdle</code> (<em>mhurdle</em>)</li>
+<li>Support for <code>svy_vglm</code> (<em>svyVGAM</em>), <code>mjoint</code> (<em>joineRML</em>), <code>mhurdle</code> (<em>mhurdle</em>), <code>sarlm</code> (<em>spatialreg</em>), <code>model_fit</code> (<em>tidymodels</em>)</li>
 </ul>
 </div>
 <div id="new-functions" class="section level2">
@@ -174,13 +174,19 @@
 <li><p><code><a href="../reference/model_info.html">model_info()</a></code> now returns <code>$is_gam</code> if model is generalized additive model with smooth terms.</p></li>
 <li><p><code><a href="../reference/format_table.html">format_table()</a></code> and <code><a href="../reference/export_table.html">export_table()</a></code> now check for valid input (e.g., non-empty data frame) and give an informative message.</p></li>
 <li><p>Improved support for <code>MixMod</code> (<em>GLMMadaptive</em>) in <code><a href="../reference/get_variance.html">get_variance()</a></code>.</p></li>
+<li><p>Improved <code><a href="../reference/print_parameters.html">print_parameters()</a></code>, to allow more flexibility and better cope with different output formats.</p></li>
+<li><p><code><a href="../reference/get_parameters.html">get_parameters()</a></code>, <code><a href="../reference/find_parameters.html">find_parameters()</a></code> and <code><a href="../reference/clean_parameters.html">clean_parameters()</a></code> for <em>emmGrid</em> and <em>emm_list</em> objects were revised and now better match the actual parameter names (also for contrasts).</p></li>
 </ul>
 </div>
 <div id="bug-fixes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
-<li>Fixed issue in <code><a href="../reference/get_variance.html">get_variance()</a></code> for models without intercept.</li>
+<li><p>Fixed issue in <code><a href="../reference/get_variance.html">get_variance()</a></code> for models without intercept.</p></li>
+<li><p>Fixed labelling issue in <code><a href="../reference/get_parameters.html">get_parameters()</a></code> and <code><a href="../reference/clean_parameters.html">clean_parameters()</a></code> for <code>blavaan</code> models.</p></li>
+<li><p><code><a href="../reference/clean_parameters.html">clean_parameters()</a></code> for <em>MCMCglmm</em> objects did not include random parameters.</p></li>
+<li><p>Fixed minor issue with unintended sub-titles for <code><a href="../reference/display.html">print_html()</a></code>.</p></li>
+<li><p>Fixed issue in <code><a href="https://rdrr.io/pkg/brms/man/get_prior.html" class="external-link">get_prior()</a></code> for <code><a href="https://mc-stan.org/rstanarm/reference/priors.html" class="external-link">rstanarm::R2()</a></code> priors.</p></li>
 </ul>
 </div>
 </div>
