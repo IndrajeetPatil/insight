@@ -48,7 +48,11 @@
 
 <meta property="og:title" content="Find model formula — find_formula" />
 <meta property="og:description" content="Returns the formula(s) for the different parts of a model
-   (like fixed or random effects, zero-inflated component, ...)." />
+   (like fixed or random effects, zero-inflated component, ...).
+   formula_ok() checks if a model formula has valid syntax
+   regarding writing TRUE instead of T inside poly()
+   and that no data names are used (i.e. no data$variable, but rather
+   variable)." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -147,10 +151,16 @@
 
     <div class="ref-description">
     <p>Returns the formula(s) for the different parts of a model
-   (like fixed or random effects, zero-inflated component, ...).</p>
+   (like fixed or random effects, zero-inflated component, ...).
+   <code>formula_ok()</code> checks if a model formula has valid syntax
+   regarding writing <code>TRUE</code> instead of <code>T</code> inside <code><a href='https://rdrr.io/r/stats/poly.html'>poly()</a></code>
+   and that no data names are used (i.e. no <code>data$variable</code>, but rather
+   <code>variable</code>).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>find_formula</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>find_formula</span><span class='op'>(</span><span class='va'>x</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>formula_ok</span><span class='op'>(</span><span class='va'>x</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,6 +168,10 @@
     <tr>
       <th>x</th>
       <td><p>A fitted model.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Toggle warnings.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -192,9 +206,9 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
 <span class='va'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>mpg</span> <span class='op'>~</span> <span class='va'>wt</span> <span class='op'>+</span> <span class='va'>cyl</span> <span class='op'>+</span> <span class='va'>vs</span>, data <span class='op'>=</span> <span class='va'>mtcars</span><span class='op'>)</span>
 <span class='fu'>find_formula</span><span class='op'>(</span><span class='va'>m</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $conditional
+</div><div class='co'>#&gt; $conditional
 #&gt; mpg ~ wt + cyl + vs
-#&gt; &lt;environment: 0x7f7f524b9688&gt;
+#&gt; &lt;environment: 0x1150908d8&gt;
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "insight_formula" "list"           </div><div class='input'>
@@ -204,7 +218,7 @@
   <span class='va'>f</span>
   <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
 <span class='op'>}</span>
-</div><div class='output co'>#&gt; [1] "Sepal.Length ~ Sepal.Width + (~1 | Species)"</div></pre>
+</div><div class='co'>#&gt; [1] "Sepal.Length ~ Sepal.Width + (~1 | Species)"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -216,7 +230,7 @@
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by <a href="https://github.com/strengejacke/" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/" class="external-link">Mattan S. Ben-Shachar</a>.</p></p>
+  <p><p>Developed by <a href="https://github.com/strengejacke/" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>.</p></p>
 </div>
 
 <div class="pkgdown">

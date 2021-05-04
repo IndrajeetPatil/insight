@@ -100,7 +100,7 @@
     
 <div id="the-difference-between-a-dataframe-and-its-render" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-difference-between-a-dataframe-and-its-render" class="anchor"></a>The difference between a dataframe and its render</h2>
+<a href="#the-difference-between-a-dataframe-and-its-render" class="anchor" aria-hidden="true"></a>The difference between a dataframe and its render</h2>
 <p>Most of objects encountered throughout the <strong>easystats</strong> packages are “tables”, i.e., a 2D matrix with columns and rows. In R, these objects are often, at their core, <em>data frames</em>. Let’s create one to use as an example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/insight/" class="external-link">insight</a></span><span class="op">)</span>
@@ -122,7 +122,7 @@
 <span class="co">#&gt; 3        5     A 0.95  6.213   7.123 0.4500</span>
 <span class="co">#&gt; 4        3     B 0.95 12.100  13.500 0.0042</span>
 <span class="co">#&gt; 5        1     B 0.95  1.230   3.610 0.3400</span></code></pre></div>
-<p>When I display in in the console (calling an object - e.g. <code>df</code> - is actually equivalent to calling <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print(df)</a></code>), the output looks alright, but it could be improved. Some packages, such as <strong>knitr</strong>, have functions to create a nicer output. For instance, in markdown, so that it can be nicely rendered in markdown documents when copied:</p>
+<p>When I display in in the console (calling an object - e.g. <code>df</code> - is actually equivalent to calling <code>print(df)</code>), the output looks alright, but it could be improved. Some packages, such as <strong>knitr</strong>, have functions to create a nicer output. For instance, in markdown, so that it can be nicely rendered in markdown documents when copied:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">df</span>, format <span class="op">=</span> <span class="st">"markdown"</span><span class="op">)</span></code></pre></div>
 <pre><code>| Variable|Group |   CI| CI_low| CI_high|      p|
@@ -262,11 +262,11 @@ B
 </div>
 <div id="the-insight-workflow" class="section level2">
 <h2 class="hasAnchor">
-<a href="#the-insight-workflow" class="anchor"></a>The <em>insight</em> workflow</h2>
+<a href="#the-insight-workflow" class="anchor" aria-hidden="true"></a>The <em>insight</em> workflow</h2>
 <p>The <strong>insight</strong> package also contains function to improve the “printing”, or rendering, of tables. Its design dissociates two separate and independent steps: <em>formatting</em> and <em>exporting</em>.</p>
 <div id="formatting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#formatting" class="anchor"></a>Formatting</h3>
+<a href="#formatting" class="anchor" aria-hidden="true"></a>Formatting</h3>
 <p>The purpose of formatting is to improve a given table, while still keeping it as a regular R data frame, so that it can be for instance further modified by the user.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/format_table.html">format_table</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
@@ -278,8 +278,8 @@ B
 <span class="co">#&gt; 5     1.00     B [ 1.23,  3.61] 0.340</span></code></pre></div>
 <p>As you can see, <code><a href="../reference/format_table.html">format_table()</a></code> modifies columns, turning number into characters (so that it has the same amount of digits), and detecting confidence intervals. This is usually combined with column-specific formatting functions, like <code><a href="../reference/format_p.html">format_p()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fu"><a href="../reference/format_p.html">format_p</a></span><span class="op">(</span><span class="va">p</span>, stars <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fu"><a href="../reference/format_p.html">format_p</a></span><span class="op">(</span><span class="va">p</span>, stars <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/format_table.html">format_table</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;   Variable Group         95% CI           p</span>
 <span class="co">#&gt; 1     1.00     A [ 3.35,  4.23] p = 0.001**</span>
@@ -290,7 +290,7 @@ B
 </div>
 <div id="exporting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#exporting" class="anchor"></a>Exporting</h3>
+<a href="#exporting" class="anchor" aria-hidden="true"></a>Exporting</h3>
 <p>The next step is <em>exporting</em>, which takes a data frame and renders it in a given format, so that it looks good in the console, or in markdown, HTML or latex.</p>
 <p>For console output, we need to <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> the returned result to get nicely printed code:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -364,7 +364,7 @@ B
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nlazzzcuyp .gt_table {
+#tzihogxurh .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -389,7 +389,7 @@ B
   border-left-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_heading {
+#tzihogxurh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -401,7 +401,7 @@ B
   border-right-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_title {
+#tzihogxurh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -411,7 +411,7 @@ B
   border-bottom-width: 0;
 }
 
-#nlazzzcuyp .gt_subtitle {
+#tzihogxurh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -421,13 +421,13 @@ B
   border-top-width: 0;
 }
 
-#nlazzzcuyp .gt_bottom_border {
+#tzihogxurh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_col_headings {
+#tzihogxurh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -442,7 +442,7 @@ B
   border-right-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_col_heading {
+#tzihogxurh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -462,7 +462,7 @@ B
   overflow-x: hidden;
 }
 
-#nlazzzcuyp .gt_column_spanner_outer {
+#tzihogxurh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -474,15 +474,15 @@ B
   padding-right: 4px;
 }
 
-#nlazzzcuyp .gt_column_spanner_outer:first-child {
+#tzihogxurh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nlazzzcuyp .gt_column_spanner_outer:last-child {
+#tzihogxurh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nlazzzcuyp .gt_column_spanner {
+#tzihogxurh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -494,7 +494,7 @@ B
   width: 100%;
 }
 
-#nlazzzcuyp .gt_group_heading {
+#tzihogxurh .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -516,7 +516,7 @@ B
   vertical-align: middle;
 }
 
-#nlazzzcuyp .gt_empty_group_heading {
+#tzihogxurh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -531,15 +531,15 @@ B
   vertical-align: middle;
 }
 
-#nlazzzcuyp .gt_from_md > :first-child {
+#tzihogxurh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nlazzzcuyp .gt_from_md > :last-child {
+#tzihogxurh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nlazzzcuyp .gt_row {
+#tzihogxurh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -558,7 +558,7 @@ B
   overflow-x: hidden;
 }
 
-#nlazzzcuyp .gt_stub {
+#tzihogxurh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -570,7 +570,7 @@ B
   padding-left: 12px;
 }
 
-#nlazzzcuyp .gt_summary_row {
+#tzihogxurh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -580,7 +580,7 @@ B
   padding-right: 5px;
 }
 
-#nlazzzcuyp .gt_first_summary_row {
+#tzihogxurh .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -590,7 +590,7 @@ B
   border-top-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_grand_summary_row {
+#tzihogxurh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -600,7 +600,7 @@ B
   padding-right: 5px;
 }
 
-#nlazzzcuyp .gt_first_grand_summary_row {
+#tzihogxurh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -610,11 +610,11 @@ B
   border-top-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_striped {
+#tzihogxurh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nlazzzcuyp .gt_table_body {
+#tzihogxurh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -623,7 +623,7 @@ B
   border-bottom-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_footnotes {
+#tzihogxurh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -637,13 +637,13 @@ B
   border-right-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_footnote {
+#tzihogxurh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#nlazzzcuyp .gt_sourcenotes {
+#tzihogxurh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -657,46 +657,46 @@ B
   border-right-color: #D3D3D3;
 }
 
-#nlazzzcuyp .gt_sourcenote {
+#tzihogxurh .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#nlazzzcuyp .gt_left {
+#tzihogxurh .gt_left {
   text-align: left;
 }
 
-#nlazzzcuyp .gt_center {
+#tzihogxurh .gt_center {
   text-align: center;
 }
 
-#nlazzzcuyp .gt_right {
+#tzihogxurh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nlazzzcuyp .gt_font_normal {
+#tzihogxurh .gt_font_normal {
   font-weight: normal;
 }
 
-#nlazzzcuyp .gt_font_bold {
+#tzihogxurh .gt_font_bold {
   font-weight: bold;
 }
 
-#nlazzzcuyp .gt_font_italic {
+#tzihogxurh .gt_font_italic {
   font-style: italic;
 }
 
-#nlazzzcuyp .gt_super {
+#tzihogxurh .gt_super {
   font-size: 65%;
 }
 
-#nlazzzcuyp .gt_footnote_marks {
+#tzihogxurh .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="nlazzzcuyp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="table gt_table">
+<div id="tzihogxurh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="table gt_table">
 <thead class="gt_col_headings"><tr>
 <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Variable</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">CI</th>
@@ -751,14 +751,14 @@ B
 </table></div>
 <p>This can be combined with <code><a href="../reference/format_table.html">format_table()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/format_table.html">format_table</a></span><span class="op">(</span>ci_brackets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"("</span>, <span class="st">")"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/format_table.html">format_table</a></span><span class="op">(</span>ci_brackets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"("</span>, <span class="st">")"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/export_table.html">export_table</a></span><span class="op">(</span>format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#oqmpsohslw .gt_table {
+#sqanweuzza .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -783,7 +783,7 @@ B
   border-left-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_heading {
+#sqanweuzza .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -795,7 +795,7 @@ B
   border-right-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_title {
+#sqanweuzza .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -805,7 +805,7 @@ B
   border-bottom-width: 0;
 }
 
-#oqmpsohslw .gt_subtitle {
+#sqanweuzza .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -815,13 +815,13 @@ B
   border-top-width: 0;
 }
 
-#oqmpsohslw .gt_bottom_border {
+#sqanweuzza .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_col_headings {
+#sqanweuzza .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -836,7 +836,7 @@ B
   border-right-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_col_heading {
+#sqanweuzza .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -856,7 +856,7 @@ B
   overflow-x: hidden;
 }
 
-#oqmpsohslw .gt_column_spanner_outer {
+#sqanweuzza .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -868,15 +868,15 @@ B
   padding-right: 4px;
 }
 
-#oqmpsohslw .gt_column_spanner_outer:first-child {
+#sqanweuzza .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oqmpsohslw .gt_column_spanner_outer:last-child {
+#sqanweuzza .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oqmpsohslw .gt_column_spanner {
+#sqanweuzza .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -888,7 +888,7 @@ B
   width: 100%;
 }
 
-#oqmpsohslw .gt_group_heading {
+#sqanweuzza .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -910,7 +910,7 @@ B
   vertical-align: middle;
 }
 
-#oqmpsohslw .gt_empty_group_heading {
+#sqanweuzza .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -925,15 +925,15 @@ B
   vertical-align: middle;
 }
 
-#oqmpsohslw .gt_from_md > :first-child {
+#sqanweuzza .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oqmpsohslw .gt_from_md > :last-child {
+#sqanweuzza .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oqmpsohslw .gt_row {
+#sqanweuzza .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -952,7 +952,7 @@ B
   overflow-x: hidden;
 }
 
-#oqmpsohslw .gt_stub {
+#sqanweuzza .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -964,7 +964,7 @@ B
   padding-left: 12px;
 }
 
-#oqmpsohslw .gt_summary_row {
+#sqanweuzza .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -974,7 +974,7 @@ B
   padding-right: 5px;
 }
 
-#oqmpsohslw .gt_first_summary_row {
+#sqanweuzza .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -984,7 +984,7 @@ B
   border-top-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_grand_summary_row {
+#sqanweuzza .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -994,7 +994,7 @@ B
   padding-right: 5px;
 }
 
-#oqmpsohslw .gt_first_grand_summary_row {
+#sqanweuzza .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1004,11 +1004,11 @@ B
   border-top-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_striped {
+#sqanweuzza .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oqmpsohslw .gt_table_body {
+#sqanweuzza .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1017,7 +1017,7 @@ B
   border-bottom-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_footnotes {
+#sqanweuzza .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1031,13 +1031,13 @@ B
   border-right-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_footnote {
+#sqanweuzza .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#oqmpsohslw .gt_sourcenotes {
+#sqanweuzza .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1051,46 +1051,46 @@ B
   border-right-color: #D3D3D3;
 }
 
-#oqmpsohslw .gt_sourcenote {
+#sqanweuzza .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#oqmpsohslw .gt_left {
+#sqanweuzza .gt_left {
   text-align: left;
 }
 
-#oqmpsohslw .gt_center {
+#sqanweuzza .gt_center {
   text-align: center;
 }
 
-#oqmpsohslw .gt_right {
+#sqanweuzza .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oqmpsohslw .gt_font_normal {
+#sqanweuzza .gt_font_normal {
   font-weight: normal;
 }
 
-#oqmpsohslw .gt_font_bold {
+#sqanweuzza .gt_font_bold {
   font-weight: bold;
 }
 
-#oqmpsohslw .gt_font_italic {
+#sqanweuzza .gt_font_italic {
   font-style: italic;
 }
 
-#oqmpsohslw .gt_super {
+#sqanweuzza .gt_super {
   font-size: 65%;
 }
 
-#oqmpsohslw .gt_footnote_marks {
+#sqanweuzza .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="oqmpsohslw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="table gt_table">
+<div id="sqanweuzza" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="table gt_table">
 <thead class="gt_col_headings"><tr>
 <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Variable</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">95% CI</th>
@@ -1148,7 +1148,7 @@ B
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by <a href="https://github.com/strengejacke/" class="external-link external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link external-link">Dominique Makowski</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/" class="external-link external-link">Mattan S. Ben-Shachar</a>.</p>
+<p>Developed by <a href="https://github.com/strengejacke/" class="external-link external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link external-link">Dominique Makowski</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://sites.google.com/view/mattansb/" class="external-link external-link">Mattan S. Ben-Shachar</a>, <a href="https://wiernik.org/" class="external-link external-link">Brenton M. Wiernik</a>.</p>
 </div>
 
 <div class="pkgdown">
