@@ -88,7 +88,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">insight</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.14.0.1</span>
       </span>
     </div>
 
@@ -280,7 +280,7 @@
         <td>
           <p><code><a href="get_predicted.html">get_predicted()</a></code> </p>
         </td>
-        <td><p>Compute Model's Predictions</p></td>
+        <td><p>Model Predictions (robust)</p></td>
       </tr><tr>
         
         <td>
@@ -680,12 +680,6 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="reshape_ci.html">reshape_ci()</a></code> </p>
-        </td>
-        <td><p>Reshape CI between wide/long formats</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="standardize_names.html">standardize_names()</a></code> </p>
         </td>
         <td><p>Standardize column names</p></td>
@@ -695,6 +689,55 @@
           <p><code><a href="check_if_installed.html">check_if_installed()</a></code> </p>
         </td>
         <td><p>Checking if needed package is installed</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-data-management" class="hasAnchor"><a href="#section-data-management" class="anchor"></a>Data management</h2>
+          <p class="section-desc"><p>Utility functions (mostly for managing or preparing data)</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="data_to_long.html">data_to_long()</a></code> <code><a href="data_to_long.html">data_to_wide()</a></code> <code><a href="data_to_long.html">reshape_longer()</a></code> <code><a href="data_to_long.html">reshape_wider()</a></code> </p>
+        </td>
+        <td><p>Reshape (pivot) data from wide to long</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="data_match.html">data_match()</a></code> </p>
+        </td>
+        <td><p>Find rows of a data frame that are matching a specific subset</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="data_relocate.html">data_relocate()</a></code> </p>
+        </td>
+        <td><p>Relocate (reorder) columns of a data frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="data_restoretype.html">data_restoretype()</a></code> </p>
+        </td>
+        <td><p>Restore the type of columns according to a reference data frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="to_numeric.html">to_numeric()</a></code> </p>
+        </td>
+        <td><p>Convert to Numeric (if possible)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="reshape_ci.html">reshape_ci()</a></code> </p>
+        </td>
+        <td><p>Reshape CI between wide/long formats</p></td>
       </tr>
     </tbody><tbody>
       <tr>
